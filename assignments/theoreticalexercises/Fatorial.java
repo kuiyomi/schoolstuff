@@ -10,8 +10,7 @@ public class Fatorial {
             num = in.nextInt();
         } while (num <= 0);
 
-        int con = calcFatorial(num);
-        System.out.println("O fatorial de " + num + " é " + con);
+        System.out.println("O fatorial de " + num + " é " + calcFatorial(num));
 
         in.close();
     }
