@@ -1,6 +1,4 @@
-import java.security.KeyStore.LoadStoreParameter;
-
-public class quadrado {
+public class Quadrado {
     
     private double lado;
     private String cor;
