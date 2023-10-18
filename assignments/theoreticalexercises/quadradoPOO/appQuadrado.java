@@ -22,5 +22,7 @@ public class appQuadrado {
 
         System.out.println("A área do quadrado é " + quad1.calculaArea());
         System.out.println("O perímetro do quadrado é " + quad1.calculaPerimetro());
+
+        System.out.println("quad1.toString()");
     }
 }
