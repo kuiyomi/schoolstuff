@@ -16,7 +16,8 @@ public class Aluno {
         p1 = novaP1;
     }
     
-    public double getP1(){return p1;
+    public double getP1(){
+        return p1;
     }
     
     public void setP2(double novaP2){
@@ -30,14 +31,16 @@ public class Aluno {
         p3 = novaP3;
     }
     
-    public double getP3(){return p3;
+    public double getP3(){
+        return p3;
     }
     
     public void setMe(double novaMe){
         me = novaMe;
     }
     
-    public double getMe(){return me;
+    public double getMe(){
+        return me;
     }
     
     public void setFrequencia(int novaFrequencia){
