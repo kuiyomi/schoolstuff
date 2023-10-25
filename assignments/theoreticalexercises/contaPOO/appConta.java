@@ -8,19 +8,19 @@ public class AppConta
         depositar(c1);
         depositar(c2);
         
-        System.out.println("SAldo da conta 1: " +c1.getSaldo());
-        System.out.println("SAldo da conta 2: "+ c2.getSaldo());
+        System.out.println("Saldo da conta 1: " +c1.getSaldo());
+        System.out.println("Saldo da conta 2: "+ c2.getSaldo());
                 
         sacar(c1);
         sacar(c2);     
         
-        System.out.println("SAldo da conta 1: " +c1.getSaldo());
-        System.out.println("SAldo da conta 2: "+ c2.getSaldo());
+        System.out.println("Saldo da conta 1: " +c1.getSaldo());
+        System.out.println("Saldo da conta 2: "+ c2.getSaldo());
         
         transferir(c1,c2);
         
-        System.out.println("SAldo da conta 1: " +c1.getSaldo());
-        System.out.println("SAldo da conta 2: "+ c2.getSaldo());
+        System.out.println("Saldo da conta 1: " +c1.getSaldo());
+        System.out.println("Saldo da conta 2: "+ c2.getSaldo());
     }
     
     public static Conta criaConta(){
