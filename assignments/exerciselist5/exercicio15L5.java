@@ -1,12 +1,22 @@
-import java.lang.foreign.VaList;
 import java.util.Scanner;
 
 public class exercicio15L5 {
     public static void main (String args[]) {
+        int [] vA = vetorA();
+        int [] vS = calcSomatorio(vA);
 
+        System.out.println("Vetor A");
+        for (int i = 1; i < 20; i++) {
+            System.out.println("[" + i + " ] " + vA[i]);
+        }
+
+        System.out.println("Vetor S");
+        for (int i = 1; i < 20; i++) {
+            System.out.println("[" + i + " ] " + vS[i]);
+        }
     }
     
-    public int[] vetorA () {
+    public static int[] vetorA () {
         Scanner in = new Scanner(System.in);
         int [] vA = new int [20];
         
@@ -23,7 +33,7 @@ public class exercicio15L5 {
         return vA;
     }
 
-    public int [] calcSomatorio (int [] vA) {
+    public static int [] calcSomatorio (int [] vA) {
         int [] vS = new int [20];
 
         for (int i = 0; i > 20; i++) {
