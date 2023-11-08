@@ -1,3 +1,4 @@
+package Livros;
 public class Livro {
     private String titulo;
     private String autores;
@@ -5,10 +6,15 @@ public class Livro {
     private int codigo;
 
     public Livro (String titulo, String autores, int anoPublic, int codigo) {
+        
+        if(codigo > 0) {
+            this.codigo = codigo;
+        } else
+            this.codigo = 0;
         this.titulo = titulo;
         this.autores = autores;
         this.anoPublic = anoPublic;
-        this.codigo = codigo;
+        
     }
 
     public String getTitulo() {
