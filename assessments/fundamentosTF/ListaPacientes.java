@@ -7,10 +7,6 @@ public class ListaPacientes {
         proximoIndice = 0;
     }
 
-    public int getProximoIndice() {
-        return proximoIndice;
-    }
-
     public Paciente consultaPacientePorNome(String nome) {
         for (int i = 0; i < proximoIndice; i++) {
             if (pacientes[i].getNome().equalsIgnoreCase(nome)) {
@@ -29,17 +25,15 @@ public class ListaPacientes {
         return null;
     }
 
-    public Paciente[] consultaPacientesIdadeAcima(int idade) {
-        Paciente[] sec = new Paciente[proximoIndice];
-        int proximoIndiceSEC = 0;
+    public void listaPacientesAcimaIdade(int idade) {
         for (int i = 0; i < proximoIndice; i++) {
-            if (pacientes[i].getIdade() >= idade) {
-                sec[proximoIndiceSEC] = pacientes[i];
-                proximoIndiceSEC++;
-            }
+            if (lista[i].getIdade() > idade) {
+                System.out.println("Paciente[ " + (i+1) + " ]:\n" + lista[i]);
+	        } else {
+                System.out.println("Nenhum paciente encontrado");
+	        }
         }
-        return sec;
-    }
+	}
 
     public boolean cadastraPaciente(Paciente paciente) {
         if (proximoIndice == 0) {
@@ -55,14 +49,6 @@ public class ListaPacientes {
             proximoIndice++;
             return true;
         }
-    }
-
-    public Paciente[] listaSecundaria() {
-        Paciente[] terc = new Paciente[proximoIndice];
-        for (int i = 0; i < proximoIndice; i++) {
-            terc[i] = pacientes[i];
-        }
-        return terc;
     }
 
     public boolean alteraPeso(int codigo, double peso) {
