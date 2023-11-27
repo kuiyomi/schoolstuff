@@ -78,7 +78,7 @@ public class ListaPacientes {
         }
     }
 
-    public boolean alteraSexo(int codigo, String genero) {
+    public boolean alteraSexo(int codigo, char genero) {
         if (proximoIndice == 0) {
             return false;
         } else {
