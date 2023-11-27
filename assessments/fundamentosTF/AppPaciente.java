@@ -6,7 +6,8 @@ public class AppPaciente {
         Scanner in = new Scanner(System.in);
         int codigo, idade;
         double altura, peso;
-        String nome, sexo;
+        String nome;
+        char sexo;
 
         System.out.println("Informe o tamanho da lista de pacientes: ");
         int tamanho = in.nextInt();
@@ -40,39 +41,32 @@ public class AppPaciente {
                     break;
 
                 case 3:
-                    do {
-                        System.out.println("Informe a idade mínima a ser consultada, entre 0 e 120: ");
-                        idade = in.nextInt();
-                    } while (idade <= 0 || idade > 120);
-                    Paciente[] listaSec = pacientes.consultaPacientesIdadeAcima(idade);
-                    System.out.println("Pacientes com idade acima de " + idade + "encontrados: ");
-                    for (int i = 0; i < pacientes.getProximoIndice(); i++) {
-                        System.out.println("\n" + listaSec[i].toString());
-                    }
+                    System.out.println("Informe a idade mínima a ser consultada: ");
+                    idade = in.nextInt();
+                    pacientes.consultaPacientesIdadeAcima(idade);
                     break;
 
                 case 4:
-                    Paciente[] todosPacientes = pacientes.listaSecundaria();
-                    if (todosPacientes.length != 0) {
-                        System.out.println("Lista de todos os pacientes:");
-                        for (Paciente paciente : todosPacientes) {
-                            System.out.println(paciente);
-                        }
-                    } else {
-                        System.out.println("Nenhum paciente cadastrado");
-                    }
+                    pacientes.listaTodosPacientes();
                     break;
+                    
                 case 5:
-                    System.out.println("Informe o código do paciente a ser cadastrado: ");
-                    codigo = in.nextInt();
-                    in.nextLine();
-                    System.out.println("Informe o nome do paciente a ser cadastrado: ");
-                    nome = in.nextLine();
-                    in.nextLine();
+                    do {
+                        System.out.println("Informe o código do paciente a ser cadastrado: ");
+                        codigo = in.nextInt();
+                        in.nextLine();
+                    } while (codigo < 0);
+                    
+                    do {
+                        System.out.println("Informe o nome do paciente a ser cadastrado: ");
+                        nome = in.nextLine();
+                        in.nextLine();
+                    } while (nome == null);
+                    
                     do {
                         System.out.println("Informe o sexo do paciente a ser cadastrado (F para feminino ou M para masculino): ");
-                        sexo = in.nextLine();
-                    } while (verificaSexo(sexo));
+                        sexo = Character.toUpperCase(sc.next().charAt(0));
+                    } while (sexo != 'F' && sexo != 'M');
 
                     do {
                         System.out.println("Informe o peso do paciente a ser cadastrado, dentro do intervalo de [0, 150kg]: ");
@@ -87,7 +81,7 @@ public class AppPaciente {
                     do {
                         System.out.println("Informe a idade do paciente a ser cadastrado, dentro do intervalo de [0, 120]: ");
                         altura = in.nextInt();
-                    } while (altura <= 0 || altura > 120);
+                    } while (altura < 0 || altura > 120);
 
                     Paciente paciente = new Paciente(codigo, nome, sexo, peso, altura, idade);
                     if (pacientes.cadastraPaciente(paciente)) {
@@ -122,7 +116,7 @@ public class AppPaciente {
                     System.out.println("Informe o código do paciente: ");
                     codigo = in.nextInt();
                     System.out.println("Informe o novo sexo a ser cadastrado (F para feminino ou M para masculino): ");
-                    sexo = in.nextLine();
+                    sexo = Character.toUpperCase(sc.next().charAt(0));
                     if (pacientes.alteraSexo(codigo, sexo)) {
                         System.out.println("Sexo alterado com sucesso!");
                     } else {
@@ -172,15 +166,5 @@ public class AppPaciente {
         System.out.println("10. Mostrar o peso ideal do paciente");
         System.out.println("11. Sair");
         System.out.print("Escolha uma opção: ");
-    }
-
-    public static boolean verificaSexo(String sexo) {
-        if (sexo.toUpperCase() == "F") {
-            return true;
-        } else if (sexo.toUpperCase() == "M") {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
