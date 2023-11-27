@@ -1,12 +1,12 @@
 public class Paciente {
     private int codigo;
     private String nome;
-    private String sexo;
+    private char sexo;
     private double peso;
     private double altura;
     private int idade;  
 
-    public Paciente(int codigo, String nome, String sexo, double peso, double altura, int idade) {
+    public Paciente(int codigo, String nome, char sexo, double peso, double altura, int idade) {
         this.codigo = codigo;
         this.nome = nome;
         this.sexo = sexo;
@@ -31,11 +31,11 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return this.sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo.toUpperCase();
     }
 
@@ -83,7 +83,7 @@ public class Paciente {
     }
 
     public double calcularPesoIdeal() {
-        if (sexo.equalsIgnoreCase("M")) {
+        if (sexo == 'M') {
             return ((72.7 * altura) - 58);
         } else {
             return ((62.1 * altura) - 44.7);
