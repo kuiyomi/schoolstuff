@@ -79,7 +79,7 @@ public class Paciente {
     }
 
     public double calcularIMC() {
-        return ((altura * altura) / peso);
+        return (peso / (Math.pow(altura, 2));
     }
 
     public double calcularPesoIdeal() {
